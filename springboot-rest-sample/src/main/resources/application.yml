@@ -1,0 +1,11 @@
+spring:
+    application:
+        name: testapp
+    http:
+        multipart:
+            max-file-size: 10MB
+
+
+server:
+    context-path: /testapp
+    port: 8081
