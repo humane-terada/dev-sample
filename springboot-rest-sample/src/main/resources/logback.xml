@@ -16,7 +16,7 @@
     <!ENTITY logLevel "INFO">
 
     <!-- アペンダー：CONSOLE／FILE -->
-    <!ENTITY appender "FILE">
+    <!ENTITY appender "CONSOLE">
 
 ]>
 

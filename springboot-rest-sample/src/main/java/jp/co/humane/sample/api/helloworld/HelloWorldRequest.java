@@ -1,5 +1,7 @@
 package jp.co.humane.sample.api.helloworld;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * サンプルリクエストデータ。
  * @author terada
@@ -8,6 +10,7 @@ package jp.co.humane.sample.api.helloworld;
 public class HelloWorldRequest {
 
     /** ID */
+    @NotNull
     private Integer id = null;
 
     /** 名前 */
