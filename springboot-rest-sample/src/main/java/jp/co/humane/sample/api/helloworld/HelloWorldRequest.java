@@ -1,6 +1,6 @@
 package jp.co.humane.sample.api.helloworld;
 
-import javax.validation.constraints.NotNull;
+import jp.co.humane.sample.validator.NotNull;
 
 /**
  * サンプルリクエストデータ。
@@ -11,7 +11,7 @@ public class HelloWorldRequest {
 
     /** ID */
     @NotNull
-    private Integer id = null;
+    private String id = null;
 
     /** 名前 */
     private String name = null;
@@ -20,7 +20,7 @@ public class HelloWorldRequest {
      * idを取得する。
      * @return id id。
      */
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -28,7 +28,7 @@ public class HelloWorldRequest {
      * idを設定する。
      * @param id id。
      */
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
