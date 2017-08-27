@@ -10,13 +10,13 @@
     <!ENTITY appLogLevel "DEBUG">
 
     <!-- ログ出力先：環境変数 LOG_FILE に出力 -->
-    <!ENTITY logFile "${LOG_FILE:-.}/helloworld.log}">
+    <!ENTITY logFile "${LOG_FILE:-.}/helloworld.&#37;d{yyyy-MM-dd}.log}">
 
     <!-- ログレベル：INFO／DEBUG -->
     <!ENTITY logLevel "INFO">
 
     <!-- アペンダー：CONSOLE／FILE -->
-    <!ENTITY appender "CONSOLE">
+    <!ENTITY appender "FILE">
 
 ]>
 
@@ -25,6 +25,8 @@
 
     <!-- Spring Bootデフォルトの設定を読み込む -->
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
 
     <!-- ログファイル名 -->
     <property name="LOG_FILE" value="&logFile;"/>
@@ -41,6 +43,8 @@
     <!-- Spring Bootのログレベル -->
     <logger name="org.springframework.boot" level="WARN"/>
 
+	<!-- mybatisのログレベル -->
+    <logger name="org.apache.ibatis" level="INFO"/>
 
     <root level="&logLevel;">
         <appender-ref ref="&appender;" />

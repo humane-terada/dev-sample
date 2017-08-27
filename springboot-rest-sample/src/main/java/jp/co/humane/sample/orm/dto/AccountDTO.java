@@ -1,30 +1,25 @@
-package jp.co.humane.sample.api.helloworld;
+package jp.co.humane.sample.orm.dto;
 
-import jp.co.humane.sample.validator.Length;
-import jp.co.humane.sample.validator.NotEmpty;
-import jp.co.humane.sample.validator.NotNull;
+public class AccountDTO {
 
-/**
- * サンプルリクエストデータ。
- * @author terada
- *
- */
-public class HelloWorldRequest {
-
-    /** ID */
-    @NotNull
-    @NotEmpty
-    @Length(min = 1, max = 3)
-    private String id = null;
+    /** Id */
+    private Integer id = null;
 
     /** 名前 */
     private String name = null;
 
     /**
+     * デフォルトコンストラクタ。
+     */
+    public AccountDTO() {
+        super();
+    }
+
+    /**
      * idを取得する。
      * @return id id。
      */
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -32,7 +27,7 @@ public class HelloWorldRequest {
      * idを設定する。
      * @param id id。
      */
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -51,4 +46,5 @@ public class HelloWorldRequest {
     public void setName(String name) {
         this.name = name;
     }
+
 }

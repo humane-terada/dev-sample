@@ -21,4 +21,5 @@ public class Main {
         SpringApplication.run(Main.class, args);
     }
 }
-// TODO:serviceクラス、dbアクセス、exception、aop、validator、
+
+// TODO:ログファイル名、devの時だけCORS無効化
