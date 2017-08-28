@@ -10,7 +10,7 @@
     <!ENTITY appLogLevel "DEBUG">
 
     <!-- ログ出力先：環境変数 LOG_FILE に出力 -->
-    <!ENTITY logFile "${LOG_FILE:-.}/helloworld.&#37;d{yyyy-MM-dd}.log}">
+    <!ENTITY logFile "${LOG_FILE:-.}/helloworld.log">
 
     <!-- ログレベル：INFO／DEBUG -->
     <!ENTITY logLevel "INFO">
@@ -26,7 +26,17 @@
     <!-- Spring Bootデフォルトの設定を読み込む -->
     <include resource="org/springframework/boot/logging/logback/defaults.xml" />
     <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
-    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+
+    <!-- ファイル出力設定 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE}.%d{yyyyMMdd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
 
     <!-- ログファイル名 -->
     <property name="LOG_FILE" value="&logFile;"/>
