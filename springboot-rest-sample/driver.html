@@ -58,7 +58,7 @@
         // POSTの場合
         case 'POST':
           header.append("Content-Type", "application/json; charset=utf-8");
-          options = {method: "POST", body: JSON.stringify(api.data), headers: header};
+          options = {mode: "no-cors", method: "POST", body: JSON.stringify(api.data), headers: header};
           break;
         
         // その他は後で追加
@@ -78,7 +78,8 @@
           // JSON形式の場合
           case 'JSON':
             getDataFn = function(response) {
-              return response.json();
+              //return response.json();
+              return response.text();
             };
             break;
           
@@ -114,8 +115,8 @@
       function getApiMap() {
         var baseUrl = "http://localhost:8081/testapp";
         var apiMap = {};
-        apiMap["HelloWorld"] = {"url": baseUrl + "/helloworld", "method": "POST", "resType": "JSON", "data": {id: "xxxxxxxxx", name: "yyy"}};
-        apiMap["HelloWorld2"] = {"url": baseUrl + "/helloworld2", "method": "POST", "resType": "JSON", "data": {id: "xxx2", name: "yyy2"}};
+        apiMap["HelloWorld"] = {"url": baseUrl + "/helloworld", "method": "POST", "resType": "JSON", "data": {id: "123", name: "ヒューメイン　太郎"}};
+        apiMap["xxxxx"] = {"url": baseUrl + "/xxxxx", "method": "POST", "resType": "JSON", "data": {xxx: "xxx", yyyy: "yyyy"}};
         return apiMap;
       }
     </script>
